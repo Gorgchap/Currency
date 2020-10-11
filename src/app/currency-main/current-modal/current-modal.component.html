@@ -1,0 +1,35 @@
+<table mat-table [dataSource]="data">
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox color="primary"
+                    (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected() && isAnySelected()"
+                    [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox color="primary"
+                    (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="url">
+    <th mat-header-cell *matHeaderCellDef>Ссылка на источник</th>
+    <td mat-cell *matCellDef="let element">{{element.url}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+</table>
+<div class="actions">
+  <button mat-raised-button color="primary" (click)="save()" [disabled]="selection.selected.length < 1">
+    Добавить
+  </button>
+  <button mat-raised-button color="basic" (click)="dialogRef.close()">
+    Отменить
+  </button>
+</div>

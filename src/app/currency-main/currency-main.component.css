@@ -1,0 +1,38 @@
+.current-main {
+  display: flex;
+  width: 50vw;
+  height: auto;
+}
+
+.current-main__sources {
+  width: 60%;
+}
+
+.current-main__info {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+}
+
+.current-main__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.button-add {
+  margin: 0 calc(50% - 28px);
+}
+
+.button-delete {
+  background-color: #ffffff;
+  border-width: 0;
+  color: #ff6062;
+  padding: 0;
+}

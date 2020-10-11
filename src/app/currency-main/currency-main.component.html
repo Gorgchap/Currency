@@ -1,0 +1,27 @@
+<div class="current-main">
+  <div class="current-main__sources">
+    <ng-container *ngFor="let source of sources; let i = index">
+      <div class="current-main__item">
+        <p>{{source.url}}</p>
+        <button mat-icon-button
+                class="button-delete"
+                [disabled]="sources.length <= minLength"
+                [class.mat-button-disabled]="sources.length <= minLength">
+          <mat-icon translate="no" (click)="onDelete(i)">delete</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+    <button mat-fab
+            color="primary"
+            class="button-add"
+            [disabled]="sources.length >= maxLength"
+            [class.mat-button-disabled]="sources.length >= maxLength">
+      <mat-icon translate="no" (click)="onAdd()">add</mat-icon>
+    </button>
+  </div>
+  <div class="current-main__info">
+    Currency of {{charCode}} is {{value}}
+  </div>
+</div>
+
+
