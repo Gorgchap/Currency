@@ -50,12 +50,14 @@ export class CurrencyMainComponent implements OnInit, OnDestroy {
   }
 
   onDelete(i: number) {
-    this.sources.splice(i, 1);
-    if (this.currentIndex > i) {
-      this.currentIndex--;
+    if (this.sources.length > this.minLength) {
+      this.sources.splice(i, 1);
+      if (this.currentIndex > i) {
+        this.currentIndex--;
+      }
+      clearTimeout(this.timeout);
+      this.updateData();
     }
-    clearTimeout(this.timeout);
-    this.updateData();
   }
 
   private updateData() {
