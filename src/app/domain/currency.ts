@@ -26,7 +26,7 @@ export const initialSources: Source[] = [
   },
   {
     id: 2,
-    url: 'https://www.cbr-xml-daily.ru/daily_jsonp.js',
+    url: 'https://www.cbr-xml-daily.ru/daily_json.js',
     view: ResponseView.JSON,
   }
 ];
@@ -49,7 +49,7 @@ export const extraSources: Source[] = [
   },
   {
     id: 6,
-    url: 'https://www.cbr-xml-daily.ru/daily_json.js',
+    url: 'https://www.cbr-xml-daily.ru/daily_jsonp.js',
     view: ResponseView.JSON
   }
 ];
